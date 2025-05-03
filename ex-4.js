@@ -374,4 +374,17 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+let totalMembers = 0;
+const seenNames = {};
+
+for (const bill of bills) {
+  if (bill.member !== null) {
+    const name = bill.member.name;
+    if (!seenNames[name]) {
+      seenNames[name] = true;
+      totalMembers++;
+    }
+  }
+}
+
+console.log(`"Unique Members Count: ${totalMembers}"`);
